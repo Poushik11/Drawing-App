@@ -14,6 +14,7 @@ body {
 }
 
 canvas {
+  margin-top: 50px;
   border: 2px solid green;
 }
 
