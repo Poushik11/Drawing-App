@@ -1,6 +1,6 @@
 const canvas = document.getElementById("canvas");
-const increaseBtn = document.getElementById("increase");
-const decreaseBtn = document.getElementById("decrease");
+const increase = document.getElementById("increase");
+const decrease = document.getElementById("decrease");
 const sizevalue = document.getElementById("size");
 const colorvalue = document.getElementById("color");
 const clearvalue = document.getElementById("clear");
@@ -30,22 +30,22 @@ canvas.addEventListener("mousemove", (e) => {
     const x2 = e.offsetX;
     const y2 = e.offsetY;
 
-    drawCircle(x2, y2);
-    drawLine(x, y, x2, y2);
+    Circle(x2, y2);
+    Line(x, y, x2, y2);
 
     x = x2;
     y = y2;
   }
 });
 
-function drawCircle(x, y) {
+function Circle(x, y) {
   ctx.beginPath();
   ctx.arc(x, y, size, 0, Math.PI * 2);
   ctx.fillStyle = color;
   ctx.fill();
 }
 
-function drawLine(x1, y1, x2, y2) {
+function Line(x1, y1, x2, y2) {
   ctx.beginPath();
   ctx.moveTo(x1, y1);
   ctx.lineTo(x2, y2);
@@ -58,7 +58,7 @@ function update() {
   sizevalue.innerText = size;
 }
 
-increaseBtn.addEventListener("click", () => {
+increase.addEventListener("click", () => {
   size += 1;
   if (size > 30) {
     size = 30;
@@ -66,7 +66,7 @@ increaseBtn.addEventListener("click", () => {
   update();
 });
 
-decreaseBtn.addEventListener("click", () => {
+decrease.addEventListener("click", () => {
   size -= 1;
 
   if (size < 5) {
